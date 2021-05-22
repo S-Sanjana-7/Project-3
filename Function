@@ -1,0 +1,23 @@
+s=input('Please enter a string: ')
+l1=[]
+l2=[]
+def most_frequent(a):
+    b=a.lower()
+    d={}
+    for i in b:
+        if i not in l1:
+            l1.append(i)
+            l2.append(b.count(i))
+    for i in range(0,len(l1)):
+        for j in range(0,len(l1)):
+            if l2[i] > l2[j]:
+                t=l1[i]
+                l1[i]=l1[j]
+                l1[j]=t
+                m=l2[i]
+                l2[i]=l2[j]
+                l2[j]=m
+    for i in range(0,len(l1)):
+        d[l1[i]]=l2[i]
+    return d;
+print(most_frequent(s))
